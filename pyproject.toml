@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "darcy-construct-benchmark"
+version = "0.4.4"
+description = "Construct-validity benchmark for surrogate-based Darcy-flow inversion: preregistered identifiability diagnostics with known ground truth"
+readme = "README.md"
+requires-python = ">=3.10"
+# NOTE: license intentionally unset — choice (MIT/BSD-3/Apache-2.0) is the
+# author's call before public release. Add `license = {text = "..."}` and a
+# LICENSE file, then remove this note.
+authors = [{ name = "Katherine J. Ombrellaro" }]
+dependencies = ["numpy>=1.24", "scipy>=1.10"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.setuptools]
+packages = ["darcy_construct_benchmark", "darcy_construct_benchmark.tests"]

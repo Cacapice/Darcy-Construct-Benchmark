@@ -1,0 +1,451 @@
+{
+  "package_version": "0.4.2",
+  "frozen_on": "2026-07-21",
+  "thresholds": {
+    "alpha": 0.01,
+    "power_min": 0.8,
+    "attenuation_band": [
+      0.8,
+      1.25
+    ],
+    "rel_error_max": 0.2,
+    "delta": 0.5,
+    "jacobian_eps": 0.001,
+    "informed_sv_cut": 1.0
+  },
+  "prior": {
+    "nu": 1.5,
+    "length_scale": 0.25,
+    "variance": 1.0,
+    "mean_value": 0.0,
+    "rho": 0.85,
+    "m_max": 12,
+    "n_ref": 21
+  },
+  "nuisance": {
+    "label": "baseline",
+    "solver": {
+      "n": 33,
+      "forcing": "constant"
+    },
+    "observation": {
+      "n_sensors_per_side": 8,
+      "noise_sigma": 0.001,
+      "seed": 0
+    }
+  },
+  "radius_a": null,
+  "theta_star": [
+    -1.4238250364546312,
+    1.2637284581291104,
+    -0.8706617379590857,
+    -0.2591732349343976,
+    -0.07534330701052097,
+    -0.740884652085609,
+    -1.3677927017829434,
+    0.6488928021930399,
+    0.361058113054895,
+    -1.95286306301219,
+    2.347409654378852,
+    0.9684969057519236
+  ],
+  "gate_rule": "pass iff H0_preserve survives on every direction with decisional=true; others supplementary",
+  "directions": [
+    {
+      "label": "e_0",
+      "vector": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_applied": 0.5,
+      "exact_response_norm": 0.16852931283376044,
+      "exact_power": 1.0,
+      "exact_power_directional": 1.0,
+      "decisional": true
+    },
+    {
+      "label": "e_1",
+      "vector": [
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_applied": 0.5,
+      "exact_response_norm": 0.07583682812308536,
+      "exact_power": 1.0,
+      "exact_power_directional": 1.0,
+      "decisional": true
+    },
+    {
+      "label": "e_2",
+      "vector": [
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_applied": 0.5,
+      "exact_response_norm": 0.07628079266753805,
+      "exact_power": 1.0,
+      "exact_power_directional": 1.0,
+      "decisional": true
+    },
+    {
+      "label": "e_9",
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "delta_applied": 0.5,
+      "exact_response_norm": 0.018973545673677414,
+      "exact_power": 0.9999999999654562,
+      "exact_power_directional": 1.0,
+      "decisional": true
+    },
+    {
+      "label": "e_10",
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "delta_applied": 0.5,
+      "exact_response_norm": 0.019715770068626553,
+      "exact_power": 0.9999999999986544,
+      "exact_power_directional": 1.0,
+      "decisional": true
+    },
+    {
+      "label": "e_11",
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "delta_applied": 0.5,
+      "exact_response_norm": 0.011852639893016772,
+      "exact_power": 0.9861963806359446,
+      "exact_power_directional": 0.9999999967865508,
+      "decisional": true
+    },
+    {
+      "label": "block_low",
+      "vector": [
+        0.4082482904638631,
+        0.4082482904638631,
+        0.4082482904638631,
+        0.4082482904638631,
+        0.4082482904638631,
+        0.4082482904638631,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_applied": 0.5,
+      "exact_response_norm": 0.07884398890949633,
+      "exact_power": 1.0,
+      "exact_power_directional": 1.0,
+      "decisional": true
+    },
+    {
+      "label": "block_high",
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.4082482904638631,
+        0.4082482904638631,
+        0.4082482904638631,
+        0.4082482904638631,
+        0.4082482904638631,
+        0.4082482904638631
+      ],
+      "delta_applied": 0.5,
+      "exact_response_norm": 0.01910390467121747,
+      "exact_power": 0.9999999999801291,
+      "exact_power_directional": 1.0,
+      "decisional": true
+    },
+    {
+      "label": "random_0",
+      "vector": [
+        -0.2342135351047308,
+        0.01894194104639445,
+        -0.3456972637750291,
+        -0.43764290027079017,
+        0.174781610605618,
+        -0.12979624717833493,
+        0.3280077183137329,
+        0.10355546459968863,
+        -0.5919257785631277,
+        -0.11662552193424984,
+        -0.30663794680203155,
+        -0.10017171098614036
+      ],
+      "delta_applied": 0.5,
+      "exact_response_norm": 0.05897345738735835,
+      "exact_power": 1.0,
+      "exact_power_directional": 1.0,
+      "decisional": true
+    },
+    {
+      "label": "random_1",
+      "vector": [
+        0.01931427200269371,
+        0.17162920317018637,
+        -0.32992197278829444,
+        -0.27693935308616346,
+        -0.11242280944330456,
+        -0.2662172683051399,
+        -0.2228148389048718,
+        0.08198414840686616,
+        -0.37886929274717734,
+        -0.30068853475253515,
+        0.49447378405600073,
+        -0.40778453625616706
+      ],
+      "delta_applied": 0.5,
+      "exact_response_norm": 0.043075774781003655,
+      "exact_power": 1.0,
+      "exact_power_directional": 1.0,
+      "decisional": true
+    },
+    {
+      "label": "random_2",
+      "vector": [
+        -0.5763567953752642,
+        -0.012097607521516587,
+        -0.4035529381339602,
+        0.14667397267822374,
+        -0.10192067428516272,
+        0.38592327364683177,
+        -0.10630780150063786,
+        0.5042453810245713,
+        -0.02831952971490016,
+        -0.11414247538907371,
+        -0.20919380670633594,
+        0.028572102306220856
+      ],
+      "delta_applied": 0.5,
+      "exact_response_norm": 0.1142689002763366,
+      "exact_power": 1.0,
+      "exact_power_directional": 1.0,
+      "decisional": true
+    },
+    {
+      "label": "informed_top",
+      "vector": [
+        0.9806173658965267,
+        -0.08294902342091469,
+        0.009040360638920861,
+        -0.01655356122205474,
+        -0.14122852246818396,
+        0.0453856674161306,
+        0.022121792766089044,
+        0.018190660829770652,
+        -0.038486084556289483,
+        0.025734612554142104,
+        -0.078423539991331,
+        -0.00582785308144743
+      ],
+      "delta_applied": 0.5,
+      "exact_response_norm": 0.17155356372441255,
+      "exact_power": 1.0,
+      "exact_power_directional": 1.0,
+      "decisional": true
+    },
+    {
+      "label": "e_3",
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_applied": 0.5,
+      "exact_response_norm": 0.038366754330161734,
+      "exact_power": 1.0,
+      "exact_power_directional": 1.0,
+      "decisional": true
+    },
+    {
+      "label": "e_4",
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_applied": 0.5,
+      "exact_response_norm": 0.04591558375287851,
+      "exact_power": 1.0,
+      "exact_power_directional": 1.0,
+      "decisional": true
+    },
+    {
+      "label": "e_5",
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_applied": 0.5,
+      "exact_response_norm": 0.03607593566197075,
+      "exact_power": 1.0,
+      "exact_power_directional": 1.0,
+      "decisional": true
+    },
+    {
+      "label": "e_6",
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_applied": 0.5,
+      "exact_response_norm": 0.019487494101934576,
+      "exact_power": 0.9999999999962567,
+      "exact_power_directional": 1.0,
+      "decisional": true
+    },
+    {
+      "label": "e_7",
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_applied": 0.5,
+      "exact_response_norm": 0.023309127750940434,
+      "exact_power": 1.0,
+      "exact_power_directional": 1.0,
+      "decisional": true
+    },
+    {
+      "label": "e_8",
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_applied": 0.5,
+      "exact_response_norm": 0.01939151958979428,
+      "exact_power": 0.9999999999942826,
+      "exact_power_directional": 1.0,
+      "decisional": true
+    }
+  ]
+}

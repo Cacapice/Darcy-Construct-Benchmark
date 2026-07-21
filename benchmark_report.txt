@@ -1,0 +1,103 @@
+KL truncation: m = 32  (achieved rho = 0.9502, requested 0.95, met = True)
+ground truth ||theta*|| = 6.499  (Theta_m = R^m)
+baseline nuisance: n = 33, forcing = constant, n_obs = 64, sigma = 0.001
+
+whitened singular values (top 5): [375.83 156.06 149.82  69.81  66.05]
+data-informed rank (sv > 1.0): 32 of 32
+
+=== H0_comp / H0_global: identifiability of the exact map ===
+(decision uses the aggregate test; 'matched' is the supplementary
+ matched-direction (NP-type) upper bound and is NOT decisional)
+direction         delta      ||dy||   power  matched  decision
+e_0                0.50   1.614e-01   1.000    1.000  REJECT H0 (identifiable)
+e_1                0.50   7.829e-02   1.000    1.000  REJECT H0 (identifiable)
+e_2                0.50   7.224e-02   1.000    1.000  REJECT H0 (identifiable)
+e_29               0.50   3.388e-03   0.037    0.428  retain H0
+e_30               0.50   2.723e-03   0.024    0.258  retain H0
+e_31               0.50   2.877e-03   0.027    0.294  retain H0
+block_low          0.50   5.782e-02   1.000    1.000  REJECT H0 (identifiable)
+block_high         0.50   5.101e-03   0.117    0.849  retain H0
+random_0           0.50   2.954e-02   1.000    1.000  REJECT H0 (identifiable)
+random_1           0.50   1.320e-02   0.999    1.000  REJECT H0 (identifiable)
+random_2           0.50   2.793e-02   1.000    1.000  REJECT H0 (identifiable)
+informed_top       0.50   1.669e-01   1.000    1.000  REJECT H0 (identifiable)
+
+negative control (delta = 0): power = 0.010 (equals alpha = 0.01 by construction)
+
+identifiability spectrum I_j(delta=0.5, sigma=0.001) [aggregate | matched-direction]:
+  j= 0.. 7  agg:  1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00
+            dir:  1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00
+  j= 8..15  agg:  1.00  1.00  1.00  0.98  0.98  0.77  0.87  0.86
+            dir:  1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00
+  j=16..23  agg:  0.87  0.23  0.16  0.48  0.59  0.07  0.08  0.08
+            dir:  1.00  0.96  0.91  1.00  1.00  0.71  0.74  0.73
+  j=24..31  agg:  0.04  0.04  0.12  0.11  0.03  0.04  0.02  0.03
+            dir:  0.45  0.43  0.85  0.84  0.35  0.43  0.26  0.29
+16/32 coefficients cross the preregistered power floor (aggregate test); 23/32 under the matched-direction test (supplementary)
+
+protocol frozen -> frozen_protocol.json  (21/38 directions decisional)
+
+shortcut surrogate on its training distribution (n=128, corr(theta_1, theta_8)=0.98):
+  relative forward RMSE = 0.0113   RMS error / noise RMS = 0.65
+  (aggregate accuracy metrics look fine; watch the gate below)
+
+=== H0_preserve: exact (negative control) ===
+direction          atten  rel_err  verdict
+e_0                1.000    0.000  preserved
+e_1                1.000    0.000  preserved
+e_2                1.000    0.000  preserved
+e_29               1.000    0.000  preserved
+e_30               1.000    0.000  preserved
+e_31               1.000    0.000  preserved
+block_low          1.000    0.000  preserved
+block_high         1.000    0.000  preserved
+random_0           1.000    0.000  preserved
+random_1           1.000    0.000  preserved
+random_2           1.000    0.000  preserved
+informed_top       1.000    0.000  preserved
+certification: PASS  (21/21 decisional directions preserved)
+geometry at theta*: coordinate deriv attenuation min = 1.000 (e_0); max posterior-std inflation = 1.0x (exact-map direction v_0)
+information: exact 124.7 bits -> surrogate 124.7 bits  (100.0% preserved, 0.0 bits lost; worst direction v_0: 0.0 bits)
+
+=== H0_preserve: mode-suppressing k=8 (positive control) ===
+direction          atten  rel_err  verdict
+e_0                0.945    0.152  preserved
+e_1                0.961    0.225  VIOLATED
+e_2                0.902    0.190  preserved
+e_29               0.000    1.000  VIOLATED
+e_30               0.000    1.000  VIOLATED
+e_31               0.000    1.000  VIOLATED
+block_low          0.884    0.220  VIOLATED
+block_high         0.000    1.000  VIOLATED
+random_0           0.888    0.306  VIOLATED
+random_1           0.727    0.686  VIOLATED
+random_2           0.682    0.435  VIOLATED
+informed_top       0.919    0.163  preserved
+certification: FAIL  (3/21 decisional directions preserved)  violated: e_1, block_low, random_0, random_1, random_2, e_3, e_4, e_5, e_6, e_7, e_8, e_9, e_10, e_11, e_12, e_14, e_15, e_16
+geometry at theta*: coordinate deriv attenuation min = 0.000 (e_8); max posterior-std inflation = 45.1x (exact-map direction v_0)
+information: exact 124.7 bits -> surrogate 50.7 bits  (40.6% preserved, 74.1 bits lost; worst direction v_0: 5.5 bits)
+
+=== H0_preserve: shortcut e_1~e_8, r=0.98 (confound control) ===
+direction          atten  rel_err  verdict
+e_0                0.972    0.052  preserved
+e_1                0.998    0.297  VIOLATED
+e_2                0.986    0.069  preserved
+e_29               0.974    0.157  preserved
+e_30               1.009    0.147  preserved
+e_31               1.012    0.173  preserved
+block_low          0.943    0.081  preserved
+block_high         0.982    0.126  preserved
+random_0           0.799    0.330  VIOLATED
+random_1           0.964    0.234  VIOLATED
+random_2           0.805    0.335  VIOLATED
+informed_top       0.960    0.065  preserved
+certification: FAIL  (16/21 decisional directions preserved)  violated: e_1, random_0, random_1, random_2, e_8
+geometry at theta*: coordinate deriv attenuation min = 0.000 (e_8); max posterior-std inflation = 31.2x (exact-map direction v_0)
+information: exact 124.7 bits -> surrogate 120.6 bits  (96.7% preserved, 4.1 bits lost; worst direction v_0: 5.0 bits)
+
+=== nuisance sweep: decision stability of H0_comp / H0_global ===
+finer_mesh         decision flips vs baseline: none
+bump_forcing       decision flips vs baseline: random_0, random_1, random_2
+sparser_sensors    decision flips vs baseline: none
+
+note: under 'bump_forcing' the observations change entirely; flips there measure sensitivity of *identifiability* to the experimental design, not error. The target parameter theta is identical across all variants by construction (shared KL basis).
